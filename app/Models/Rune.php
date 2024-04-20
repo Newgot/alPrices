@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
 
 /**
  * @property string $title
  * @property integer $city_id
  * @property integer $price
+ * @property City $city
  * @method static self updateOrCreate(array $haystack, array $params)
  */
 class Rune extends Model
@@ -40,5 +42,10 @@ class Rune extends Model
             ->get()
             ->pluck('title');
 
+    }
+
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
     }
 }
