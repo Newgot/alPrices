@@ -18,18 +18,18 @@ class EquipmentController extends Controller
     public function index()
     {
         $cities = City::all();
-        return view('equipments', [
+        return view('equipment', [
             'cities' => $cities
         ]);
     }
 
     public function charm()
     {
-        $equipmentCharms = $this->service->charms(
-            Equipment::all(),
-            Rune::all(),
-            City::all(),
-        );
+//        $equipmentCharms = $this->service->charms(
+//            Equipment::all(),
+//            Rune::all(),
+//            City::all(),
+//        );
         return 1;
     }
 

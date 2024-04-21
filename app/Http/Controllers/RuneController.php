@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Rune;
+use App\Resources\RuneResource;
 use App\Services\RuneService;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class RuneController extends Controller
 {
@@ -30,4 +33,8 @@ class RuneController extends Controller
         return redirect(route('rune.index'));
     }
 
+    public function list(): AnonymousResourceCollection
+    {
+        return RuneResource::collection(Rune::all());
+    }
 }
